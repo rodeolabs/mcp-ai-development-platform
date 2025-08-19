@@ -1,10 +1,12 @@
 # AI-Enhanced Development Platform Guide
 
+*Autonomous AI Agent Workflow with Multi-Agent Coordination*
+
 ## Project Context
 **Tech Stack**: Full-Stack Development with AI-Enhanced Workflow
 **Architecture**: MCP-Powered Development Platform
 **Quality Bar**: Clean code, comprehensive tests, security-first, performance-aware
-**Status**: ✅ Production-ready foundation with 6 operational MCP servers
+**Status**: ✅ Autonomous Workflow Active - 6 Specialized Agents + 6 MCP Servers
 
 ## Essential Commands
 ```bash
@@ -20,9 +22,97 @@ git add . && git commit -m "type: description"
 git push origin feature/name
 ```
 
+## Autonomous Agent Framework
+
+### 6 Specialized Agents
+
+#### **Researcher Agent**
+**Role**: Technology assessment, competitive analysis, market intelligence
+**Tools**: Fetch, Playwright, Docker+Crawl4AI, Context7, GitHub
+**Autonomous Actions**:
+- Research frameworks, libraries, and best practices
+- Extract competitor intelligence and pricing analysis
+- Generate structured technology assessments
+- Provide architecture recommendations
+
+#### **Architect Agent** 
+**Role**: System design, database schema, technical planning
+**Tools**: Supabase, Context7, GitHub, Docker
+**Autonomous Actions**:
+- Design database schemas and migrations
+- Plan system architecture and integrations
+- Generate technical specifications
+- Create deployment strategies
+
+#### **Developer Agent**
+**Role**: Code implementation, feature development, integration
+**Tools**: GitHub, Supabase, Context7, Docker
+**Autonomous Actions**:
+- Implement features based on specifications
+- Write database queries and API endpoints
+- Handle third-party integrations
+- Generate type definitions and documentation
+
+#### **Reviewer Agent**
+**Role**: Code review, security analysis, quality assurance
+**Tools**: GitHub, Playwright, Context7
+**Autonomous Actions**:
+- Review pull requests and code changes
+- Identify security vulnerabilities
+- Ensure code quality standards
+- Validate implementation against specifications
+
+#### **Tester Agent**
+**Role**: E2E testing, performance validation, bug detection
+**Tools**: Playwright, Docker, Supabase, GitHub
+**Autonomous Actions**:
+- Create and execute E2E test suites
+- Perform performance and load testing
+- Validate user workflows and edge cases
+- Report bugs and integration issues
+
+#### **Deployer Agent**
+**Role**: Container orchestration, deployment automation, monitoring
+**Tools**: Docker, GitHub, Supabase, Playwright
+**Autonomous Actions**:
+- Manage container deployments
+- Orchestrate microservices
+- Monitor system health and performance
+- Handle rollbacks and incident response
+
+### Workflow Orchestration Patterns
+
+#### **Sequential Workflow (Default)**
+```
+Researcher → Architect → Developer → Reviewer → Tester → Deployer
+```
+**Use for**: Standard feature development, new projects, critical changes
+**Human Checkpoints**: After Research, Architecture, and final Testing phases
+
+#### **Parallel Workflow (Efficiency)**
+```
+Researcher + Architect (concurrent)
+     ↓
+Developer A + Developer B (concurrent)
+     ↓  
+Reviewer → Tester → Deployer
+```
+**Use for**: Large features, multiple independent components
+**Human Checkpoints**: After parallel Research/Architecture, before deployment
+
+#### **Hierarchical Workflow (Complex Projects)**
+```
+Manager Agent coordinates:
+├── Research Team (Researcher + Context7)
+├── Development Team (Architect + Developer + Reviewer)
+└── QA Team (Tester + Deployer)
+```
+**Use for**: Multi-component systems, major releases
+**Human Checkpoints**: Strategic decisions, resource allocation, final approval
+
 ## MCP Integration (All Operational ✅)
 
-### Available Tools
+### Available Tools for All Agents
 - **GitHub**: Repository management, PR automation, issue tracking
 - **Supabase**: Database operations, migrations, type generation
 - **Playwright**: Browser automation, testing, E2E validation
@@ -70,7 +160,71 @@ mcp_docker_run_container(
 - **Competitive Analysis**: Feature analysis, pricing research
 - **Architecture Planning**: Best practices from successful implementations
 
-## MCP Tools & Autonomous Usage
+## Agent Communication Protocols
+
+### Context Handoff Template
+```markdown
+## Agent Transition: [FromAgent] → [ToAgent]
+
+### Task Summary
+**Objective**: [Brief description]
+**Status**: [Completed/Blocked/In Progress]
+**Duration**: [Time taken]
+
+### Key Outputs
+- [Deliverable 1 with location/link]
+- [Deliverable 2 with location/link]
+- [Critical findings or decisions]
+
+### Next Agent Requirements
+- [Specific inputs needed]
+- [Dependencies or constraints]
+- [Success criteria]
+
+### Issues/Risks
+- [Any blockers or concerns]
+- [Recommendations for next agent]
+```
+
+### Human Checkpoint Reporting
+```markdown
+## Progress Checkpoint: [Phase] Complete
+
+### Accomplishments
+- [Major deliverables completed]
+- [Key decisions made]
+- [Technical milestones achieved]
+
+### Current Status
+- **Active Agent**: [Current agent name]
+- **Next Phase**: [What happens next]
+- **Timeline**: [Progress vs. plan]
+
+### Approval Needed
+- [ ] [Decision point 1]
+- [ ] [Decision point 2]
+- [ ] Proceed to next phase
+
+### Issues for Human Review
+- [Critical decisions needed]
+- [Resource requirements]
+- [Risk mitigation needed]
+```
+
+### Autonomous Decision Rules
+
+#### **Agent Authority Levels**
+**Level 1 (Full Autonomy)**: Technical implementation, testing, documentation
+**Level 2 (Proceed with Notification)**: Architecture decisions, third-party integrations
+**Level 3 (Human Approval Required)**: Major changes, cost implications, security risks
+
+#### **Escalation Triggers**
+- **Technical**: Unresolvable errors, integration failures
+- **Business**: Cost/timeline impact > 20%, scope changes
+- **Security**: Vulnerability detection, compliance issues
+- **Quality**: Test failures > threshold, performance degradation
+
+## MCP Tools & Agent Specialization
 
 ### Available MCP Servers
 
@@ -282,11 +436,41 @@ mcp_supabase_execute_sql(query="
 
 **Reference**: [coleam00/mcp-crawl4ai-rag](https://github.com/coleam00/mcp-crawl4ai-rag) for advanced features
 
+## Autonomous Workflow Activation
+
+### Quick Start for New Agents
+1. **Identify your role** from the 6 specialized agents above
+2. **Check current workflow status** using TodoWrite tool
+3. **Read context handoff** from previous agent (if applicable)
+4. **Execute autonomous actions** within your authority level
+5. **Report to human** at designated checkpoints
+6. **Hand off to next agent** using communication protocol
+
+### Resource Management (Auto-Cleanup)
+```bash
+# Always use auto_remove for temporary containers
+mcp_docker_run_container(image="...", auto_remove=true)
+
+# Clean up after workflows
+mcp_docker_stop_container(container_id="...")
+
+# Verify cleanup
+mcp_docker_list_containers() # Should show minimal active containers
+```
+
+### Progress Tracking
+**TodoWrite Integration**: All agents must use TodoWrite for:
+- Task planning and breakdown
+- Progress tracking and status updates 
+- Handoff coordination between agents
+- Human checkpoint preparation
+
 ### System Status
-**Platform Status**: 🟢 FULLY OPERATIONAL
-**Foundation**: Web Intelligence + Database + Testing + Deployment + Version Control
+**Platform Status**: 🟢 AUTONOMOUS WORKFLOW ACTIVE
+**Architecture**: 6 Specialized Agents + 6 MCP Servers + 3-Tier Intelligence
+**Coordination**: Sequential, Parallel, and Hierarchical workflow patterns
 **Last Updated**: 2025-08-19
 
 ---
 
-**Core Principle**: This platform provides intelligent automation for the complete development lifecycle. Use web intelligence to inform decisions, database tools for data management, and automation tools for efficient development.
+**Core Principle**: This platform enables autonomous AI agent coordination with minimal human micromanagement. Agents work independently within their specialization while providing clear progress reporting and maintaining systematic resource cleanup.
