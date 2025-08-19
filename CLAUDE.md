@@ -4,9 +4,9 @@
 
 ## Project Context
 **Tech Stack**: Full-Stack Development with AI-Enhanced Workflow
-**Architecture**: MCP-Powered Development Platform
+**Architecture**: MCP-Powered Development Platform with Autonomous Sub-Agents
 **Quality Bar**: Clean code, comprehensive tests, security-first, performance-aware
-**Status**: ✅ Autonomous Workflow Active - 6 Specialized Agents + 6 MCP Servers
+**Status**: ✅ Production Ready - 5 Sub-Agents + 6 MCP Servers + Full Automation
 
 ## Essential Commands
 ```bash
@@ -22,93 +22,46 @@ git add . && git commit -m "type: description"
 git push origin feature/name
 ```
 
-## Autonomous Agent Framework
+## Autonomous Sub-Agent Framework
 
-### 6 Specialized Agents
+### 5 Specialized Sub-Agents (Active)
 
-#### **Researcher Agent**
-**Role**: Technology assessment, competitive analysis, market intelligence
-**Tools**: Fetch, Playwright, Docker+Crawl4AI, Context7, GitHub
-**Autonomous Actions**:
-- Research frameworks, libraries, and best practices
-- Extract competitor intelligence and pricing analysis
-- Generate structured technology assessments
-- Provide architecture recommendations
+#### **@code-reviewer**
+**Role**: Code quality analysis and security validation
+**Capabilities**: Syntax checking, best practices, vulnerability detection
+**Integration**: Automatic invocation on all code changes
 
-#### **Architect Agent** 
-**Role**: System design, database schema, technical planning
-**Tools**: Supabase, Context7, GitHub, Docker
-**Autonomous Actions**:
-- Design database schemas and migrations
-- Plan system architecture and integrations
-- Generate technical specifications
-- Create deployment strategies
+#### **@security-scanner** 
+**Role**: Comprehensive security assessment
+**Capabilities**: OWASP compliance, dependency scanning, auth validation
+**Integration**: Parallel execution with code review
 
-#### **Developer Agent**
-**Role**: Code implementation, feature development, integration
-**Tools**: GitHub, Supabase, Context7, Docker
-**Autonomous Actions**:
-- Implement features based on specifications
-- Write database queries and API endpoints
-- Handle third-party integrations
-- Generate type definitions and documentation
+#### **@performance-optimizer**
+**Role**: Performance analysis and optimization
+**Capabilities**: Bundle analysis, runtime optimization, memory profiling
+**Integration**: Triggered on performance-critical changes
 
-#### **Reviewer Agent**
-**Role**: Code review, security analysis, quality assurance
-**Tools**: GitHub, Playwright, Context7
-**Autonomous Actions**:
-- Review pull requests and code changes
-- Identify security vulnerabilities
-- Ensure code quality standards
-- Validate implementation against specifications
+#### **@test-automator**
+**Role**: Automated testing and validation
+**Capabilities**: Unit tests, E2E tests, regression testing
+**Integration**: Full test suite execution and reporting
 
-#### **Tester Agent**
-**Role**: E2E testing, performance validation, bug detection
-**Tools**: Playwright, Docker, Supabase, GitHub
-**Autonomous Actions**:
-- Create and execute E2E test suites
-- Perform performance and load testing
-- Validate user workflows and edge cases
-- Report bugs and integration issues
+#### **@documentation-writer**
+**Role**: Technical documentation generation
+**Capabilities**: API docs, code comments, README updates
+**Integration**: Automatic documentation sync with code changes
 
-#### **Deployer Agent**
-**Role**: Container orchestration, deployment automation, monitoring
-**Tools**: Docker, GitHub, Supabase, Playwright
-**Autonomous Actions**:
-- Manage container deployments
-- Orchestrate microservices
-- Monitor system health and performance
-- Handle rollbacks and incident response
+### Orchestration Patterns
 
-### Workflow Orchestration Patterns
-
-#### **Sequential Workflow (Default)**
+#### **Parallel Processing (Primary)**
 ```
-Researcher → Architect → Developer → Reviewer → Tester → Deployer
+Main Agent → [@code-reviewer + @security-scanner] → @performance-optimizer → @test-automator → @documentation-writer → Auto-Merge
 ```
-**Use for**: Standard feature development, new projects, critical changes
-**Human Checkpoints**: After Research, Architecture, and final Testing phases
 
-#### **Parallel Workflow (Efficiency)**
-```
-Researcher + Architect (concurrent)
-     ↓
-Developer A + Developer B (concurrent)
-     ↓  
-Reviewer → Tester → Deployer
-```
-**Use for**: Large features, multiple independent components
-**Human Checkpoints**: After parallel Research/Architecture, before deployment
-
-#### **Hierarchical Workflow (Complex Projects)**
-```
-Manager Agent coordinates:
-├── Research Team (Researcher + Context7)
-├── Development Team (Architect + Developer + Reviewer)
-└── QA Team (Tester + Deployer)
-```
-**Use for**: Multi-component systems, major releases
-**Human Checkpoints**: Strategic decisions, resource allocation, final approval
+#### **Conditional Routing**
+- **Simple changes**: @code-reviewer + @documentation-writer
+- **Security-sensitive**: All agents with enhanced @security-scanner
+- **Performance-critical**: Focus on @performance-optimizer + @test-automator
 
 ## MCP Integration (All Operational ✅)
 
@@ -182,69 +135,38 @@ mcp_docker_run_container(
 - **Competitive Analysis**: Feature analysis, pricing research
 - **Architecture Planning**: Best practices from successful implementations
 
-## Agent Communication Protocols
+## Sub-Agent Communication Protocols
 
-### Context Handoff Template
+### Automated Workflow (No Human Intervention)
 ```markdown
-## Agent Transition: [FromAgent] → [ToAgent]
+## Sub-Agent Execution Flow
 
-### Task Summary
-**Objective**: [Brief description]
-**Status**: [Completed/Blocked/In Progress]
-**Duration**: [Time taken]
+### Input Processing
+**Main Agent**: Receives task → Analyzes complexity → Routes to appropriate sub-agents
 
-### Key Outputs
-- [Deliverable 1 with location/link]
-- [Deliverable 2 with location/link]
-- [Critical findings or decisions]
+### Parallel Execution
+**@code-reviewer + @security-scanner**: Simultaneous analysis
+**@performance-optimizer**: Triggered if performance flags detected
+**@test-automator**: Comprehensive validation
+**@documentation-writer**: Final documentation sync
 
-### Next Agent Requirements
-- [Specific inputs needed]
-- [Dependencies or constraints]
-- [Success criteria]
-
-### Issues/Risks
-- [Any blockers or concerns]
-- [Recommendations for next agent]
+### Output Synthesis
+**Main Agent**: Aggregates results → Creates PR → Triggers auto-merge
 ```
 
-### Human Checkpoint Reporting
-```markdown
-## Progress Checkpoint: [Phase] Complete
+### Escalation Rules (Minimal Human Intervention)
 
-### Accomplishments
-- [Major deliverables completed]
-- [Key decisions made]
-- [Technical milestones achieved]
+#### **Auto-Proceed Scenarios (95% of cases)**
+- Code quality checks pass
+- Security scans clear
+- Tests pass
+- Performance within thresholds
 
-### Current Status
-- **Active Agent**: [Current agent name]
-- **Next Phase**: [What happens next]
-- **Timeline**: [Progress vs. plan]
-
-### Approval Needed
-- [ ] [Decision point 1]
-- [ ] [Decision point 2]
-- [ ] Proceed to next phase
-
-### Issues for Human Review
-- [Critical decisions needed]
-- [Resource requirements]
-- [Risk mitigation needed]
-```
-
-### Autonomous Decision Rules
-
-#### **Agent Authority Levels**
-**Level 1 (Full Autonomy)**: Technical implementation, testing, documentation
-**Level 2 (Proceed with Notification)**: Architecture decisions, third-party integrations
-**Level 3 (Human Approval Required)**: Major changes, cost implications, security risks
-
-#### **Escalation Triggers**
-- **Technical**: Unresolvable errors, integration failures
-- **Business**: Cost/timeline impact > 20%, scope changes
-- **Security**: Vulnerability detection, compliance issues
-- **Quality**: Test failures > threshold, performance degradation
+#### **Human Escalation Required (5% of cases)**
+- Security vulnerabilities detected
+- Test failures above threshold
+- Performance degradation > 20%
+- Breaking changes identified
 
 ## MCP Tools & Agent Specialization
 
@@ -521,10 +443,10 @@ mcp_docker_run_container(image="...", auto_remove=true)
 ```
 
 ### System Status
-**Platform Status**: 🟢 FULLY OPERATIONAL WITH AUTONOMOUS SUB-AGENTS
+**Platform Status**: 🟢 PRODUCTION READY WITH FULL AUTOMATION
 **Architecture**: Human-IDE + Main Agent + 5 Sub-Agents + 6 MCP Servers + GitHub Auto-Merge
-**Foundation**: Web Intelligence + Database + Testing + Deployment + Fully Automated Version Control
-**Last Updated**: 2025-08-19
+**Repository**: Clean, consolidated, all obsolete branches and files removed
+**Documentation**: Streamlined and current as of 2025-08-19
 
 ---
 

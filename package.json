@@ -1,0 +1,29 @@
+{
+  "name": "analytics-dashboard",
+  "version": "1.0.0",
+  "description": "Real-time analytics dashboard with React and Supabase",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:frontend\"",
+    "dev:api": "cd api && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "build": "npm run build:api && npm run build:frontend",
+    "build:api": "cd api && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "test": "npm run test:api && npm run test:frontend",
+    "test:api": "cd api && npm test",
+    "test:frontend": "cd frontend && npm test",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/analytics-dashboard.git"
+  },
+  "keywords": ["analytics", "dashboard", "real-time", "react", "supabase"],
+  "author": "Developer Agent",
+  "license": "MIT"
+}
